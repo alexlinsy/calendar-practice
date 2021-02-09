@@ -11,8 +11,24 @@ const Calendar = () => {
     setCalendar(buildCalendar(value));
   }, [value]);
 
+  function currMonth() {
+    return value.format('MMM');
+  }
+
+  function currYear() {
+    return value.format('YYYY');
+  }
+
   return (
     <div className="calendar">
+      <div className='header'>
+        <div className='previous'>{String.fromCharCode(171)}</div>
+        <div className='current'>
+          {currMonth()} {currYear()}
+        </div>
+        <div className='next'>{String.fromCharCode(187)}</div>
+      </div>
+      <div className='body'>
       {calendar.map(week => (
         <div key={calendar.indexOf(week)}>
           {week.map(day => (
@@ -28,6 +44,7 @@ const Calendar = () => {
           ))}
         </div>
       ))}
+    </div>
     </div>
   );
 };
