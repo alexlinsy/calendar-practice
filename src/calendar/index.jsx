@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment';
 import buildCalendar from './buildCalendar';
+import dayStyles from './styles';
 import './styles.css';
 
 const Calendar = () => {
@@ -37,7 +38,7 @@ const Calendar = () => {
               key={day.format('D')}
               onClick={() => setValue(day)}
             >
-              <div className={value.isSame(day) ? 'selected' : ''}>
+              <div className={dayStyles(day, value)}>
                 {day.format('D')}
               </div>
             </div>
