@@ -13,7 +13,6 @@ function buildCalendar(value) {
     );
   }
 
-  console.log(tempCalendar);
   return tempCalendar;
 }
 

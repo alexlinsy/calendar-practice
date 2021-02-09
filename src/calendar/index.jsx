@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import moment from 'moment';
 import buildCalendar from './buildCalendar';
 import dayStyles from './styles';
+import Header from './Header';
 import './styles.css';
 
 const Calendar = () => {
@@ -12,23 +13,9 @@ const Calendar = () => {
     setCalendar(buildCalendar(value));
   }, [value]);
 
-  function currMonth() {
-    return value.format('MMM');
-  }
-
-  function currYear() {
-    return value.format('YYYY');
-  }
-
   return (
     <div className="calendar">
-      <div className='header'>
-        <div className='previous'>{String.fromCharCode(171)}</div>
-        <div className='current'>
-          {currMonth()} {currYear()}
-        </div>
-        <div className='next'>{String.fromCharCode(187)}</div>
-      </div>
+     <Header value={value} setValue={setValue} />
       <div className='body'>
       {calendar.map(week => (
         <div key={calendar.indexOf(week)}>
